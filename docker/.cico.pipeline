@@ -1,7 +1,7 @@
 /*
  *def c7arches = ["ppc64le", "x86_64", "aarch64"]
  */
-def c7arches = ["aarch64"]
+def c7arches = ["x86_64"]
 def stages = [:]
 
 def onmyduffynode(script)
