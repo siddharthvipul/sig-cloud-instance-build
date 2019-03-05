@@ -1,4 +1,4 @@
-def c7arches = ["ppc64le", "x86_64", "aarch64"]
+def c7arches = ["x86_64"]
 
 
 def onmyduffynode(script){
@@ -91,9 +91,9 @@ node('sig-cloudinstance'){
 
                      onmyduffynode "mkdir -p /tmp/centos-7-${time_stamp}/${arch}"
 
-                     onmyduffynode "cp -r /var/tmp/containers/*/centos-7-${arch}/docker/*tar.xz /tmp/centos-7-${time_stamp}/${arch}"
+                     onmyduffynode "cp -r /var/tmp/containers/*/centos-7-${arch}/docker/* /tmp/centos-7-${time_stamp}/${arch}"
 
-                     onmyduffynode "RSYNC_PASSWORD='${rsync_key}' rsync -av /tmp/centos-7-${time_stamp}/${arch}/ sig-cloudinstance@artifacts.ci.centos.org::sig-cloudinstance/centos-7-${time_stamp}/${arch}/"
+                     /*onmyduffynode "RSYNC_PASSWORD='${rsync_key}' rsync -av /tmp/centos-7-${time_stamp}/${arch}/ sig-cloudinstance@artifacts.ci.centos.org::sig-cloudinstance/centos-7-${time_stamp}/${arch}/"*/
                 }
             }
 
@@ -103,7 +103,7 @@ node('sig-cloudinstance'){
             }
             finally{
                 stage("Cleanup"){
-                     sh 'cico node done ${DUFFY_SSID}'
+                     /*sh 'cico node done ${DUFFY_SSID}'*/
                 }
             }
         }
